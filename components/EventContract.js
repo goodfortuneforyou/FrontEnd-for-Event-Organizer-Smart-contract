@@ -14,6 +14,7 @@ export default function EventContract() {
   const [ticketCount, setTicketCount] = useState("");
   const [price, setPrice] = useState("");
   const [date, setDate] = useState("");
+  const [ticketFee, setTicketFee] = useState("");
   const [buyEventId, setBuyEventId] = useState("");
   const [buyQuantity, setBuyQuantity] = useState("");
 
@@ -36,7 +37,7 @@ export default function EventContract() {
       id: buyEventId,
       quantity: buyQuantity,
     },
-    msgValue: "50",
+    msgValue: "1000000000000",
   });
   const { runContractFunction: ticketTransfer } = useWeb3Contract({
     abi: abi,
@@ -68,6 +69,14 @@ export default function EventContract() {
             value={buyQuantity}
             onChange={({ target }) => setBuyQuantity(target?.value)}
             type="text"
+          />
+          <Input
+            label="Enter total ticket fee in wei"
+            name="ticket fee"
+            onBlur={function noRefCheck() {}}
+            value={ticketFee}
+            onChange={({ target }) => setTicketFee(target?.value)}
+            type="number"
           />
         </div>
         <div className="flex justify-center pt-5">
