@@ -37,7 +37,7 @@ export default function EventContract() {
       id: buyEventId,
       quantity: buyQuantity,
     },
-    msgValue: "1000000000000",
+    msgValue: ticketFee,
   });
   const { runContractFunction: ticketTransfer } = useWeb3Contract({
     abi: abi,
